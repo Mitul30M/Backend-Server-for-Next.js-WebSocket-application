@@ -2,8 +2,7 @@ import dotenv from "dotenv";
 import express, { Express } from "express";
 import http, { Server as HTTPServer } from "http";
 import cors from "cors";
-const { setupSocket } = require("./socket.js");
-
+import {setupSocket} from "./socket.js";
  // Note: Use .js extension for ESM
 
  dotenv.config();
