@@ -1,13 +1,13 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "statefull http server for socket.io",
+  "description": "stateful HTTP server for socket.io",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -r ts-node/register src/index.ts",
-    "start": "node src/index.ts",
-    "build": "npm install"
+    "dev": "nodemon src/index.ts",
+    "start": "node dist/index.js",  
+    "build": "tsc"  
   },
   "type": "module",
   "author": "",
