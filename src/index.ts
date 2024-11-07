@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import express, { Express } from "express";
 import http, { Server as HTTPServer } from "http";
 import cors from "cors";
-import setupSocket from "./socket";
+import {setupSocket} from "./socket";
  // Note: Use .js extension for ESM
 
  dotenv.config();

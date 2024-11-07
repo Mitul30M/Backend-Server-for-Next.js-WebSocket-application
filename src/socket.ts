@@ -6,7 +6,7 @@ type MessageType = {
   message: string;
 };
 
-const setupSocket = (server: HTTPServer): void => {
+export const setupSocket = (server: HTTPServer): void => {
   const io = new SocketIOServer(server, {
     cors: {
       origin: process.env.ORIGIN,
@@ -43,4 +43,4 @@ const setupSocket = (server: HTTPServer): void => {
   });
 };
 
-export default setupSocket;
+
