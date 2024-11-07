@@ -2,34 +2,38 @@ import dotenv from "dotenv";
 import express, { Express } from "express";
 import http, { Server as HTTPServer } from "http";
 import cors from "cors";
-import setupSocket from "./socket.js";
+import setupSocket from "./socket";
  // Note: Use .js extension for ESM
 
-dotenv.config();
+ dotenv.config();
 
-const PORT: number = parseInt(process.env.PORT || "4000", 10);
-const ORIGIN: string | undefined = process.env.ORIGIN;
+ try {
+   const PORT: number = parseInt(process.env.PORT || "4000", 10);
+   const ORIGIN: string | undefined = process.env.ORIGIN;
 
-if (!ORIGIN) {
-  throw new Error("Missing required environment variable: ORIGIN");
-}
+   if (!ORIGIN) {
+     throw new Error("Missing required environment variable: ORIGIN");
+   }
 
-const app: Express = express();
-const server: HTTPServer = http.createServer(app);
+   const app: Express = express();
+   const server: HTTPServer = http.createServer(app);
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(
-  cors({
-    origin: ORIGIN,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true,
-  })
-);
+   app.use(express.urlencoded({ extended: true }));
+   app.use(express.json());
+   app.use(
+     cors({
+       origin: ORIGIN,
+       methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+       credentials: true,
+     })
+   );
 
-// Initialize Socket.IO with the HTTP server
-setupSocket(server);
+   // Initialize Socket.IO with the HTTP server
+   setupSocket(server);
 
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+   server.listen(PORT, () => {
+     console.log(`Server running on port ${PORT}`);
+   });
+ } catch (err) {
+   console.error("Failed to start server:", err);
+ }

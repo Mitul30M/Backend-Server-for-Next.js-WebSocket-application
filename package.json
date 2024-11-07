@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/index.ts",
+    "dev": "nodemon -r ts-node/register src/index.ts",
     "start": "node src/index.ts",
-    "build":"npm install"
+    "build": "npm install"
   },
   "type": "module",
   "author": "",
