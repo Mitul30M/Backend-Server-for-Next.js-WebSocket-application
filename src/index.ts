@@ -32,7 +32,7 @@ try {
   setupSocket(server);
 
   server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}, acceptiong connection from ${ORIGIN}`);
   });
 } catch (err) {
   console.error("Failed to start server:", err);
