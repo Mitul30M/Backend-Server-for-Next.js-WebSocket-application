@@ -22,7 +22,7 @@ try {
   app.use(express.json());
   app.use(
     cors({
-      origin: ORIGIN,
+      origin: "https://next-js-websocket-ebon.vercel.app/",
       methods: ["GET", "POST"],
       credentials: true,
     })
